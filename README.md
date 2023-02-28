@@ -4,4 +4,5 @@ Description:
 - Counter app
 - Vite
 - React
+  - useReducer
 - Typescript
