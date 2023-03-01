@@ -1,19 +1,15 @@
-import { useState } from "react"
-import Counter from "./components/Counter"
-import Heading from "./components/Heading"
-import List from "./components/List"
-import Section from "./components/Section"
+import { useState } from 'react'
+import Counter from './components/Counter'
+import { CounterProvider, initState } from './context/CounterContext'
 
 function App() {
-
-  return (
-    <>
-      <Heading title="Hello"></Heading>
-      <Section title="different title">This is my section</Section>
-      <Counter></Counter>
-      <List items={['🏀coffee', '⛱️umbrella', '🌮taco']} render={(item: string) => <span className="gold">{item}</span>}/>
-    </>
-  )
+	return (
+		<>
+			<CounterProvider count={initState.count} text={initState.text}>
+				<Counter>{(num: number) => <>Count is {num}</>}</Counter>
+			</CounterProvider>
+		</>
+	)
 }
 
 export default App
